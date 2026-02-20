@@ -1,0 +1,23 @@
+---
+import CompanyLogo from '../CompanyLogo.astro'; // Path relative to this component
+
+const siteTitle = Astro.site?.title || 'IT Ops Docs';
+---
+<a href="/" class="site-title-override">
+  <CompanyLogo />
+  <span>{siteTitle}</span>
+</a>
+<style>
+  .site-title-override {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--sl-color-text-base); /* Ensure text color is theme-aware */
+    line-height: 1; /* Align text and logo properly */
+  }
+  .site-title-override span {
+    font-size: var(--sl-text-lg); /* Match Starlight's default title font size */
+    font-weight: var(--sl-font-bold);
+    white-space: nowrap;
+  }
+</style>

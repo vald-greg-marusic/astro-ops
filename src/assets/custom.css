@@ -1,0 +1,152 @@
+:root {
+	--sl-color-accent-low: #f16e0020; /* A transparent version of the accent orange */
+	--sl-color-accent: #f16e00;
+	--sl-color-accent-high: #f67a0e;
+	
+    /* Explicitly Light Gray Palette Defaults */
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #fdfdfd; /* Even lighter */
+    --sl-color-gray-2: #f0f0f0; /* Very light */
+    --sl-color-gray-3: #e0e0e0; /* Light */
+    --sl-color-gray-4: #c0c0c0; /* Medium light */
+    --sl-color-gray-5: #808080; /* Medium dark */
+    --sl-color-gray-6: #404040; /* Dark */
+    --sl-color-gray-7: #202020; /* Very dark */
+    --sl-color-black: #000000;
+
+    /* Text Colors */
+    --sl-color-text-accent: var(--sl-color-accent);
+    --sl-color-text-base: var(--sl-color-gray-7); /* Dark text on light background */
+    --sl-color-text-dark: var(--sl-color-gray-7);
+    --sl-color-text-invert: var(--sl-color-white);
+    --sl-color-text-neutral: var(--sl-color-gray-5);
+
+    /* Background Colors */
+    --sl-color-bg-body: #f0f8ff; /* AliceBlue for clear identification */
+    --sl-color-bg-surface-1: var(--sl-color-gray-1);
+    --sl-color-bg-surface-2: var(--sl-color-gray-2);
+    --sl-color-bg-surface-3: var(--sl-color-gray-3);
+    --sl-color-bg-surface-4: var(--sl-color-gray-4);
+
+    --sl-color-border: var(--sl-color-gray-3);
+
+	--sl-font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--sl-font-family-headings: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+	--sl-text-3xl: 1.75rem;
+	--sl-text-4xl: 2.25rem;
+	--sl-text-5xl: 3rem;
+}
+
+body {
+    background-color: var(--sl-color-bg-body);
+    color: var(--sl-color-text-base);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+    color: var(--sl-color-text-dark);
+}
+
+.tagline {
+    color: var(--sl-color-text-neutral); /* Use a slightly less dark color for taglines */
+}
+
+/* Custom styles for the main header bar */
+header {
+    background-color: var(--sl-color-white); /* White background */
+    height: 64px; /* Approximating "two thumbs thick" */
+    border-bottom: 1px solid var(--sl-color-gray-2); /* Subtle bottom border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow */
+    display: flex; /* Ensure flex behavior */
+    align-items: center; /* Vertically align items */
+    justify-content: flex-start; /* Align items to the start initially */
+    padding-inline: var(--sl-content-margin-inline); /* Match Starlight padding */
+    gap: 1.5rem; /* Space between major header sections */
+}
+
+/* Container for search, social, theme select */
+header > .sl-flex.print\:hidden { /* Target the direct child div */
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Allow it to take available space */
+    gap: 1rem; /* Space between elements */
+}
+
+/* Push search to the far right */
+site-search { /* Targeting the custom element directly */
+    order: 3; /* Place search after social and theme select */
+    margin-left: auto; /* Push search and subsequent elements to the right */
+}
+
+/* Order social links */
+.social-icons { /* Target the social links container */
+    order: 1; /* Place before search and theme select */
+    display: flex; /* Ensure social icons are also a flex container */
+    align-items: center;
+    gap: 0.5rem; /* Space between social links */
+}
+
+starlight-theme-select { /* Target the theme select custom element */
+  order: 2; /* Place theme select after social icons */
+}
+
+
+/* Styles for header social links as minimalist buttons */
+header a.social-link { /* Assuming Starlight uses a 'social-link' class */
+    display: flex;
+    gap: 0.5rem; /* gap-2 */
+    align-items: center;
+    padding: 0.3em 0.8em; /* Slightly reduce padding for a more compact look */
+    text-decoration: none;
+    border-radius: 0.5rem; /* rounded-2 */
+    transition: all 0.2s ease;
+    background-color: transparent; /* No background by default */
+    color: var(--sl-color-text-base);
+    font-size: 1rem; /* text-l */
+    font-weight: 500; /* font-medium */
+    white-space: nowrap;
+    height: auto; /* Allow height to be content-based */
+}
+
+header a.social-link:hover {
+    background-color: var(--sl-color-bg-surface-1); /* Subtle background on hover */
+    color: var(--sl-color-accent); /* Text color change on hover */
+}
+
+header a.social-link svg {
+    width: 1.25rem; /* w-5 */
+    height: 1.25rem; /* h-5 */
+    flex-shrink: 0;
+    stroke: currentColor;
+}
+
+
+/* Dark mode specific colors (overrides light theme defaults) */
+[data-theme="dark"] {
+    /* Dark Mode Gray Palette (Original from initial :root) */
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #e5e7eb;
+	--sl-color-gray-2: #d1d5db;
+	--sl-color-gray-3: #9ca3af;
+	--sl-color-gray-4: #4b5563;
+	--sl-color-gray-5: #374151;
+	--sl-color-gray-6: #1f2937;
+	--sl-color-gray-7: #111827;
+	--sl-color-black: #000000;
+
+    /* Dark Mode Text Colors (Original from initial :root) */
+    --sl-color-text-base: var(--sl-color-gray-2);
+    --sl-color-text-dark: var(--sl-color-gray-4);
+    --sl-color-text-invert: var(--sl-color-gray-7); /* Inverted for light background elements */
+    --sl-color-text-neutral: var(--sl-color-gray-3);
+
+    /* Dark Mode Background Colors (Original from initial :root) */
+    --sl-color-bg-body: #0d1117;
+    --sl-color-bg-surface-1: var(--sl-color-gray-6);
+    --sl-color-bg-surface-2: var(--sl-color-gray-5);
+    --sl-color-bg-surface-3: var(--sl-color-gray-4);
+    --sl-color-bg-surface-4: var(--sl-color-gray-3);
+
+    --sl-color-border: var(--sl-color-gray-5);
+}

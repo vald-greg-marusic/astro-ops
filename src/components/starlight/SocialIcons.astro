@@ -1,0 +1,29 @@
+---
+import InboxIcon from '../InboxIcon.astro';
+import ServerIcon from '../ServerIcon.astro';
+import KnowledgeBaseIcon from '../KnowledgeBaseIcon.astro';
+---
+<div class="header-social-buttons">
+    <a class="header-button-link" href="https://vald.siit.io/requests">
+        <InboxIcon />
+        <p>My requests</p>
+    </a>
+    <a class="header-button-link" href="https://vald.siit.io/services">
+        <ServerIcon />
+        <p>Services</p>
+    </a>
+    <a class="header-button-link" href="/knowledge-base/">
+        <KnowledgeBaseIcon />
+        <p>Knowledge Base</p>
+    </a>
+</div>
+
+<style>
+/* This specific styling for the container ensures it aligns with Starlight's defaults */
+.header-social-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust space between buttons if needed */
+  height: 100%;
+}
+</style>

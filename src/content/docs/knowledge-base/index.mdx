@@ -1,0 +1,23 @@
+---
+title: Knowledge Base
+description: "Your central hub for IT knowledge, guides, and support articles."
+---
+import Card from '../../../components/Card.astro';
+import CardGrid from '../../../components/CardGrid.astro';
+import UserIcon from '../../../components/UserIcon.astro';
+import GearIcon from '../../../components/GearIcon.astro';
+import BookIcon from '../../../components/BookIcon.astro';
+
+<p>Welcome to the IT Knowledge Base! Here you'll find comprehensive guides and solutions to common IT questions and issues. Use the categories below to quickly navigate to the information you need.</p>
+
+<CardGrid>
+    <Card title="Access" href="./access/" description="Manage your accounts, passwords, and permissions.">
+        <UserIcon slot="icon" />
+    </Card>
+    <Card title="Hardware" href="./hardware/" description="Setup, troubleshoot, and maintain your devices.">
+        <GearIcon slot="icon" />
+    </Card>
+    <Card title="Software" href="./software/" description="Install, configure, and use applications.">
+        <BookIcon slot="icon" />
+    </Card>
+</CardGrid>

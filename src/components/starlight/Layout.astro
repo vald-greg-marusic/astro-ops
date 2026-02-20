@@ -1,0 +1,41 @@
+---
+import StarlightLayout from '@astrojs/starlight/components/Layout.astro';
+
+
+// You can pull props from StarlightLayout if needed
+const props = Astro.props;
+---
+<StarlightLayout {...props}>
+  <Fragment slot="header-actions">
+  </Fragment>
+  <slot />
+</StarlightLayout>
+
+<style>
+  /* Styling for the container and button */
+  .siit-menu-container {
+    position: relative; /* For dropdown positioning */
+    display: flex; /* To align with other header items */
+    align-items: center;
+    height: 100%; /* Take full height of header */
+  }
+  .siit-menu-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sl-color-text-base);
+    border-radius: var(--sl-radius);
+  }
+  .siit-menu-toggle-button:hover {
+    background-color: var(--sl-color-bg-surface-1);
+    color: var(--sl-color-accent);
+  }
+  .siit-menu-toggle-button svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+</style>

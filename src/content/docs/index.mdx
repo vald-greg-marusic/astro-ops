@@ -1,40 +1,79 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: "IT Knowledge Base"
+description: "Self-help guides and documentation for staff."
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
-  image:
-    file: ../../assets/houston.webp
+  title: "IT Help & Support"
+  tagline: "Find guides for common IT tasks, software, and hardware. Can't find what you need? Contact the Service Desk."
   actions:
-    - text: Example Guide
-      link: /guides/example/
-      icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
+    - text: vald.siit.io
+      link: 'https://vald.siit.io'
       icon: external
-      variant: minimal
+      variant: secondary
+
+    - text: vald.sharepoint.com
+      link: 'https://vald.siit.io'
+      icon: external
+      variant: secondary
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import Card from '../../components/Card.astro';
+import CardGrid from '../../components/CardGrid.astro';
+import UserIcon from '../../components/UserIcon.astro';
+import GearIcon from '../../components/GearIcon.astro';
+import BookIcon from '../../components/BookIcon.astro';
+import AppleIcon from '../../components/AppleIcon.astro';
+import WindowsIcon from '../../components/WindowsIcon.astro';
+import SiitLogo from '../../components/SiitLogo.astro';
 
-## Next steps
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+## Get Started Here
+
+<CardGrid>
+	<Card title="Accounts & Access" href="/knowledge-base/access/" description="Manage your user accounts, passwords, and access permissions.">
+    <UserIcon slot="icon" />
+  </Card>
+	<Card title="Computers & Devices" href="/knowledge-base/hardware/" description="Setup, troubleshoot, and maintain your IT hardware.">
+    <GearIcon slot="icon" />
+  </Card>
+	<Card title="Software & Tools" href="/knowledge-base/software/" description="Install, configure, and use common software applications.">
+    <GearIcon slot="icon" />
+  </Card>
+	<Card title="Siit" href="https://vald.siit.io" description="Need help or want something from the IT Ops team? Submit a request via the Siit portal">
+    <SiitLogo slot="icon" />
+  </Card>
+	<Card title="IT Sec Ops" href="https://vald.sharepoint.com/sites/itopSec/" description="Information and policies for IT Security Operations.">
+    <svg slot="icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shield"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+  </Card>
+</CardGrid>
+
+## Popular Knowledgebase Articles
+
+<CardGrid>
+  <Card title="How to Reset Your Password" href="/knowledge-base/access/reset-password" description="A step-by-step guide to resetting your IT account password.">
+    <BookIcon slot="icon" />
+  </Card>
+  <Card title="Connecting to VPN" href="/knowledge-base/software/vpn-connection" description="Instructions for securely connecting to the company VPN.">
+    <BookIcon slot="icon" />
+  </Card>
+  <Card title="New Device Setup" href="/knowledge-base/hardware/new-device-setup" description="Initial setup guide for new laptops and workstations.">
+    <BookIcon slot="icon" />
+  </Card>
+</CardGrid>
+
+## How-To Guides
+
+<CardGrid>
+  <Card title="Install RStudio" href="/knowledge-base/software/installing-rstudio" description="Detailed steps for installing RStudio on your system.">
+    <GearIcon slot="icon" />
+  </Card>
+  <Card title="Printer Setup" href="/knowledge-base/hardware/printer-setup" description="Guide to connecting and configuring office printers.">
+    <GearIcon slot="icon" />
+  </Card>
+  <Card title="Android Compliance" href="/knowledge-base/hardware/android-compliance" description="Ensure your Android device meets IT compliance standards.">
+    <AppleIcon slot="icon" />
+  </Card>
+  <Card title="Windows Device Setup" href="/knowledge-base/hardware/new-device-setup" description="Specific setup instructions for Windows operating systems.">
+    <WindowsIcon slot="icon" />
+  </Card>
 </CardGrid>

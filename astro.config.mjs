@@ -1,24 +1,40 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mdx from '@astrojs/mdx'; // Import the MDX integration
+import expressiveCode from 'astro-expressive-code';
 
 // https://astro.build/config
 export default defineConfig({
 	integrations: [
-		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
-				{
+		expressiveCode(), // Add Expressive Code integration here
+		mdx(), // Add MDX integration here
+					starlight({
+						title: 'IT Ops Docs',
+
+		
+																														components: {
+
+		
+																															SiteTitle: './src/components/starlight/SiteTitle.astro',
+
+		
+																															Layout: './src/components/starlight/Layout.astro',
+
+		
+																															SocialIcons: './src/components/starlight/SocialIcons.astro',
+
+		
+																														},						customCss: ['./src/assets/custom.css'],
+
+
+				sidebar: [				{
 					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					autogenerate: { directory: 'guides' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'Knowledge Base',
+					autogenerate: { directory: 'knowledge-base' },
 				},
 			],
 		}),

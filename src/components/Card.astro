@@ -1,0 +1,59 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  description?: string;
+}
+const { title, href, description } = Astro.props;
+---
+<a href={href} class="card">
+  <div class="icon">
+    <slot name="icon" />
+  </div>
+  <div class="title">{title}</div>
+  {description && <p class="description">{description}</p>}
+</a>
+<style>
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Center content horizontally */
+  padding: 2rem;
+  background-color: var(--sl-color-bg-surface-1);
+  border: 1px solid var(--sl-color-border);
+  border-radius: 0.75rem;
+  text-decoration: none;
+  color: var(--sl-color-text-base);
+  transition: all 0.2s ease;
+  height: 100%;
+  text-align: center; /* Center text within the card */
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-color: var(--sl-color-accent);
+}
+.icon {
+  margin-bottom: 1rem; /* Space between icon and title */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px; /* Standard icon size */
+  height: 48px;
+}
+.icon :global(svg) {
+  width: 100%;
+  height: 100%;
+  fill: var(--sl-color-text-accent); /* Use accent color for icons */
+}
+.title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem; /* Space between title and description */
+}
+.description {
+  font-size: 0.9rem;
+  color: var(--sl-color-text-muted);
+}
+</style>
